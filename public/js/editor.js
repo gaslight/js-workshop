@@ -246,7 +246,7 @@
       console.clear();
     }
 
-    $.getJSON('/tasks.js', function(sections) {
+    $.getJSON('./js/tasks.js', function(sections) {
       tasks.empty();
       $('<option />').appendTo(tasks);
 
@@ -310,11 +310,10 @@ var printLineNumber = function (trace, msg) {
 
 var assert = function (expr, msg) {
   if (expr !== true) {
-    var trace = printStackTrace();
-    printLineNumber(trace, msg);
+    console.error((msg ? msg + ': ' : '') + 'Failed!');
   }
   else {
-    console.log((msg ? msg + ': ' : '') + 'OK!');
+    console.log((msg ? msg + ': ' : '') + 'OK.');
   }
 }
 
